@@ -361,7 +361,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 WordList = list(data['Article'])
 tfidf = TfidfVectorizer(use_idf=True, max_df=0.5, min_df=1)
-vectors = tfidf.fit_transform(WordList)  # 生成文档的向量
+vectors = tfidf.fit_transform(WordList)  # Generate vectors of documents
 # print(vectors)
 
 # STEP 2 Constructs a dictionary (dict_of_tokens) where the keys are words and the values are TFIDF weights
@@ -371,7 +371,7 @@ tfidf_vectors = []  # all vectors by tfidf
 for row in vectors:
     tfidf_vectors.append({dict_of_tokens[column]: value for (column, value) in zip(row.indices, row.data)})
 
-# Take a look at the first document contained in this dictionary 看看这个字典包含的第一个文档
+# Take a look at the first document contained in this dictionary 
 print("The number of document vectors=", len(tfidf_vectors),
       "\n The dictionary of document[0]:", tfidf_vectors[0])
 
